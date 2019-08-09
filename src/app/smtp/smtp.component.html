@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <form [formGroup]="smtpForm" (submit)="submitSMTP()">
+      <select name="provider" formControlName="provider" class="form-control">
+        <option value="">Select Provider</option>
+        <option value="gmail">Gmail</option>
+        <option value="hotmail">Hotmail</option>
+        <option value="yahoo">Yahoo</option>
+      </select>
+      <input type="text" name="username" formControlName="username" class="form-control" placeholder="username">&nbsp;
+      <input type="password" name="password" formControlName="password" class="form-control" placeholder="password">&nbsp;
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <p>
+    {{smtpForm.value | json}}
+  </p>
+</div>
