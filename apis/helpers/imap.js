@@ -3,7 +3,7 @@ var Imap = require('imap'),
  
 var imap = new Imap({
     user: 'mohaimin95@hotmail.com',
-    password: '98429729500',
+    password: '..............',
     host: 'imap-mail.outlook.com',
     port: 993,
     tls: true
