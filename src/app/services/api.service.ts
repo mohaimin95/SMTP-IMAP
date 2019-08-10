@@ -11,4 +11,7 @@ export class ApiService {
   verifySMTP(data) {
     return this.http.post(`${this.BASEURL}/verify-smtp`,data);
   }
+  getInbox() {
+    return this.http.get(`${this.BASEURL}/get`);
+  }
 }

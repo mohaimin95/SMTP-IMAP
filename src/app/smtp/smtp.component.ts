@@ -13,10 +13,14 @@ export class SmtpComponent implements OnInit {
     username:new FormControl(),
     password:new FormControl(),
   });
+  inbox:Object = [];
   response:Object;
   constructor(private apiService:ApiService) { }
 
   ngOnInit() {
+    this.apiService.getInbox().subscribe(data=>{
+      this.inbox = data;
+    })
   }
   submitSMTP() {
     this.apiService.verifySMTP(this.smtpForm.value).subscribe(res=>{

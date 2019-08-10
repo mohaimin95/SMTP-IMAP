@@ -15,7 +15,15 @@
 </div>
 
 <div class="jumbotron">
-  <p>
-    {{smtpForm.value | json}}
-  </p>
+  <div class="list-group">
+    <div class="list-group-item" *ngFor="let x of inbox">
+      <!-- <div [innerHTML]="x.body"></div> -->
+      <div>
+        <p><b>FROM : </b>{{x.from}}</p>
+        <p><b>TO : </b>{{x.to}}</p>
+        <p><b>SUBJECT : </b>{{x.subject}}</p>
+        <p [innerHTML]="x.html"></p>
+      </div>
+    </div>
+  </div>
 </div>

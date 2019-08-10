@@ -5,6 +5,9 @@ const env = require("dotenv").config();
 const PORT = process.env.PORT;
 const mailHelper = require("./helpers/nodemailer");
 const mailListeners = require("./helpers/mailhooks");
+const imapHelpers = require("./helpers/mailhooks");
+// const imap = require("./helpers/imap");
+// const imap = require("./helpers/notifier");
 app.use(cors());
 app.use(express.json());
 app.post('/send-test-mail',(req,res)=>{
@@ -34,6 +37,12 @@ app.post("/verify-smtp",(req,res)=>{
         res.status(501).send(err);
     })
 });
+
+app.get("/get",(req,res)=>{
+    imapHelpers.getInbox().then(data=>{
+        res.send(data)
+    })
+})
 app.listen(PORT,(err)=>{
     if(err) console.log("Error in connection ",err);
     else console.log(`Connected to ${PORT}.`);
